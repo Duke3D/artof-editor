@@ -64,15 +64,15 @@ class plgEditorArtofEditor extends JPlugin
 
 		if (is_array($buttons) || (is_bool($buttons) && $buttons)) {
 			$results = $this->_subject->getButtons($id, $buttons);
-			$return .= "\n<div id=\"editor-xtd-buttons\">\n";
+			$return .= "\n<div id=\"editor-xtd-buttons\" class=\"btn-toolbar\">\n";
 
 			foreach ($results as $button)
 			{
 				if ($button->get('name')) {
-					$modal		= ($button->get('modal')) ? 'class="modal-button"' : null;
+					$modal		= ($button->get('modal')) ? 'class="modal-button"' : 'class="btn btn-small"';
 					$href		= ($button->get('link')) ? 'href="'.$button->get('link').'"' : null;
 					$onclick	= ($button->get('onclick')) ? 'onclick="'.$button->get('onclick').'"' : null;
-					$return		.= "<div class=\"button2-left\"><div class=\"".$button->get('name')."\"><a ".$modal." title=\"".$button->get('text')."\" ".$href." ".$onclick." rel=\"".$button->get('options')."\">".$button->get('text')."</a></div></div>\n";
+					$return		.= "<div class=\"button2-left btn-group\"><div class=\"".$button->get('name')."\"><a ".$modal." title=\"".$button->get('text')."\" ".$href." ".$onclick." rel=\"".$button->get('options')."\">".$button->get('text')."</a></div></div>\n";
 				}
 			}
 
